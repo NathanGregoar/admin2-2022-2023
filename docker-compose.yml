@@ -5,8 +5,8 @@ services:
     container_name: 'resolver'
     build: ./resolver
     expose:
-      - 53:53/udp
-      - 53:53/tcp
+      - 53/udp
+      - 53/tcp
     networks:
       secure_zone:
         ipv4_address: 192.168.0.1
@@ -16,8 +16,8 @@ services:
     links:
       - db:db
     expose:
-      - 80:80
-      - 443:443
+      - 80
+      - 443
     networks:
       secure_zone:
         ipv4_address: 192.168.0.2
@@ -27,7 +27,7 @@ services:
     volumes:
       - db-data:/var/lib/mysql
     expose:
-      - 3306:3306
+      - 3306
     networks:
       secure_zone:
         ipv4_address: 192.168.0.3
@@ -35,10 +35,10 @@ services:
     container_name: 'mail'
     build: ./mail
     expose:
-      - "25:25"
-      - "143:143"
-      - "587:587"
-      - "993:993"
+      - 25
+      - 143
+      - 587
+      - 993
     networks:
       secure_zone:
         ipv4_address: 192.168.0.4
