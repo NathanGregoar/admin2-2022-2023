@@ -7,6 +7,8 @@ services:
     expose:
       - 53/udp
       - 53/tcp
+    dns:
+      - 192.168.0.1
     networks:
       secure_zone:
         ipv4_address: 192.168.0.1
