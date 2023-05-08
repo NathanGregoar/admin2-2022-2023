@@ -13,12 +13,12 @@ $TTL	3600
 
 
 ;Le nom de mon serveur assigner à son IP
-ns			IN	A	192.168.0.1;
+ns			IN	A	157.230.24.247;
 
 ;Server Web
-b2b	IN	A	192.168.0.2;
-www	IN	A	192.168.0.2;
+b2b	IN	A	157.230.24.247;
+www	IN	A	157.230.24.247;
 
 ;Server Mail
-mail	IN	A	192.168.0.4;
+mail	IN	A	157.230.24.247;
 @	IN	MX	10	mail;
