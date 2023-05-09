@@ -4,7 +4,7 @@ services:
   resolver:
     container_name: 'resolver'
     build: ./resolver
-    ports:
+    expose:
       - 53/udp
       - 53/tcp
     networks:
@@ -15,9 +15,9 @@ services:
     build: ./web
     links:
       - db:db
-    ports:
-      - 80:80
-      # - 443:443
+    expose:
+      - 80
+      - 443
     networks:
       secure_zone:
         ipv4_address: 192.168.0.2

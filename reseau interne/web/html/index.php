@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Products</title>
+    <title>Product</title>
   </head>
   <body>
     <table>
