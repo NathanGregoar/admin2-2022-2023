@@ -15,7 +15,7 @@ services:
     build: ./web
     links:
       - db:db
-    expose:
+    ports:
       - 80
       - 443
     networks:
