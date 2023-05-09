@@ -1,7 +1,6 @@
 FROM ubuntu:latest
 
 RUN apt-get update && apt-get -y upgrade
-RUN apt-get install -y rsyslog
 RUN apt-get install -y postfix
 RUN apt-get install -y dovecot-imapd dovecot-pop3d
 
