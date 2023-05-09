@@ -13,20 +13,11 @@ services:
   web:
     container_name: 'web'
     build: ./web
-    volumes:
-      - ./web/default/index.html:/var/www/html/index.html
-      - ./web/www.html:/var/www/www.m2-5.ephec-ti.be/index.html
-      - ./web/b2b.php:/var/www/b2b.m2-5.ephec-ti.be/index.php
-      - ./web/intranet.php:/var/www/intranet.woodytoys.lab/index.php
-      - ./web/b2b.m2-5.ephec-ti.be.conf:/etc/apache2/sites-available/b2b.m2-5.ephec-ti.be.conf
-      - ./web/www.m2-5.ephec-ti.be.conf:/etc/apache2/sites-available/www.m2-5.ephec-ti.be.conf
-      - ./web/intranet.woodytoys.lab.conf:/etc/apache2/sites-available/intranet.woodytoys.lab.conf
     links:
       - db:db
     ports:
       - 80:80
       - 443:443
-    command: bash -c "docker-php-ext-install mysqli && docker-php-ext-enable mysqli && a2ensite b2b.m2-5.ephec-ti.be.conf && a2ensite www.m2-5.ephec-ti.be.conf && a2ensite intranet.woodytoys.lab.conf && service apache2 start && tail -f /dev/null"
     networks:
       secure_zone:
         ipv4_address: 192.168.0.2
