@@ -16,3 +16,15 @@ b2b	    IN	    A	    192.168.0.2;
 www	    IN	    A	    192.168.0.2;
 mail	IN	    A	    192.168.0.4;
 @	IN	MX	10	mail;
+
+
+m2-5.ephec-ti.be.       NS      ns;
+
+ns      A       192.168.0.1
+
+intranet.m2-5.ephec-ti.be.      A       192.168.0.2
+www.m2-5.ephec-ti.be.           A       192.168.0.2
+b2b.m2-5.ephec-ti.be.           A       192.168.0.2
+
+mail.m2-5.ephec-ti.be.          A       192.168.0.4
+m2-5.ephec-ti.be.       MX  10      mail.m2-5.ephec-ti.be.
