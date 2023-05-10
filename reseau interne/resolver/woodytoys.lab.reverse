@@ -12,4 +12,3 @@ $TTL 86400
 1    IN     PTR    ns.woodytoys.lab.
 1    IN     PTR    resolver.woodytoys.lab.
 2    IN     PTR    www.woodytoys.lab.
-4    IN     PTR    mail.woodytoys.lab.
