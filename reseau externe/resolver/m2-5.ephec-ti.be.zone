@@ -1,20 +1,24 @@
-$TTL 1h
-m2-5.ephec-ti.be. IN SOA ns.m2-5.ephec-ti.be. nathan.m2-5.ephec-ti.be. (
-	2007120710 ; serial number of this zone file
-	1d ; slave refresh (1 day)
-	2h ; slave retry time in case of a problem (2 hours)
-	4w ; slave expiration time (4 weeks)
-	1h ; maximum caching time in case of failed lookups (1 hour)
-)
+$ORIGIN m2-5.ephec-ti.be.
+$TTL	3600
+@	IN	SOA	ns.m2-5.ephec-ti.be.   nathan.m2-5.ephec-ti.be. (
 
-m2-5.ephec-ti.be. NS ns;
+    2022061457 ; serial
+    21600      ; refresh after 6 hours
+    3600       ; retry after 1 hour
+	1814000     ; expire after 3 week
+	86400 )    ; minimum TTL of 1 day
 
-ns A 192.168.0.1;
+;Nom de serveur faisant autoriter sur le domaine m2-5.ephec-ti.be.
+@      IN      NS      ns.m2-5.ephec-ti.be.
 
-intranet.m2-5.ephec-ti.be. A 192.168.0.1;
-www.m2-5.ephec-ti.be. A 192.168.0.1;
-b2b.m2-5.ephec-ti.be. A 192.168.0.1;
 
-mail.m2-5.ephec-ti.be. A 192.168.0.1;
+;Le nom de mon serveur assigner à son IP
+ns			IN	A	192.168.0.1;
 
-m2-5.ephec-ti.be. MX 10 mail.m2-5.ephec-ti.be.
+;Server Web
+b2b	IN	A	192.168.0.2;
+www	IN	A	192.168.0.2;
+
+;Server Mail
+mail	IN	A   192.168.0.4;
+@	IN	MX	10	mail;
