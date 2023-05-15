@@ -1,12 +1,12 @@
-FROM ubuntu/bind9
+FROM ubuntu:20.04
 
-LABEL group="2TM2-5"
+RUN apt-get update && apt-get install -y bind9 bind9utils bind9-doc dnsutils
 
-COPY named.conf /etc/bind
-COPY m2-5.ephec-ti.be.zone /etc/bind
-COPY m2-5.ephec-ti.be.reverse /etc/bind
+ADD named.conf.local /etc/bind/named.conf.local
+ADD m2-5.ephec-ti.be.zone /etc/bind/zones/db.m2-5.ephec-ti.be
 
-EXPOSE 53
+RUN chown root:bind /etc/bind/named.conf.local /etc/bind/zones/db.m2-5.ephec-ti.be
 
-CMD ["ls", "/etc/bind"]
-CMD ["named"]
+EXPOSE 53/udp 53/tcp
+
+CMD ["/usr/sbin/named", "-g", "-c", "/etc/bind/named.conf"]
