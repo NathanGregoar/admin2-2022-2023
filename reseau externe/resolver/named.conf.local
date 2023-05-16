@@ -1,4 +1,25 @@
+options {
+	directory "/var/cache/bind";
+	querylog yes;
+
+	# accepter toutes les requêtes
+	listen-on { any; };
+	allow-query { any; };
+	listen-on-v6 { any; };
+
+	# refuser la recursion
+        recursion no;
+	# refuser tous transfert de zone
+        allow-transfer { none; };
+    
+};
+
 zone "m2-5.ephec-ti.be" {
     type master;
-    file "/etc/bind/zones/db.m2-5.ephec-ti.be";
+    file "/etc/bind/m2-5.ephec-ti.be.zone";
+};
+
+zone "0.168.192.in-addr.arpa." {
+	type master;
+	file "/etc/bind/m2-5.ephec-ti.be.reverse";
 };
