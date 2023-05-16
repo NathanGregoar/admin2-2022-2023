@@ -20,4 +20,4 @@ www    IN  A   157.230.24.247
 
 ; Server Mail
 mail   IN  A   157.230.24.247
-@      IN  MX  10  mail.m2-.ephec-ti.be.
+@      IN  MX  10  mail.m2-5.ephec-ti.be.
