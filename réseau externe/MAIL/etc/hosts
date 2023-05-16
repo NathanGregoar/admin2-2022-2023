@@ -4,4 +4,4 @@ fe00::0	ip6-localnet
 ff00::0	ip6-mcastprefix
 ff02::1	ip6-allnodes
 ff02::2	ip6-allrouters
-172.16.0.2	mail.m2-5.ephec.ti.be mail
+157.230.24.247	ns.m2-5.ephec-ti.be
