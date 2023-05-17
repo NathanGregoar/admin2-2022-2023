@@ -15,7 +15,7 @@ options {
 
 zone "m2-5.ephec-ti.be" {
     type master;
-    file "/etc/bind/m2-5.ephec-ti.be.zone";
+    file "/etc/bind/zones/m2-5.ephec-ti.be.zone";
 };
 
 zone "0.168.192.in-addr.arpa." {
