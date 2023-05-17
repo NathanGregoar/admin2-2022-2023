@@ -13,10 +13,8 @@ services:
   web:
     container_name: 'web'
     build: ./web
-    # links:
-    #   - db:db
-    environment:
-    - DB_HOST=192.168.0.3
+    links:
+      - db:db
     expose:
       - 80
       - 443
@@ -28,13 +26,11 @@ services:
     build: ./db
     volumes:
       - db-data:/var/lib/mysql
-    ports:
-      - 3306:3306
-    # expose:
-    #   - 3306
-    # networks:
-    #   secure_zone:
-    #     ipv4_address: 192.168.0.3
+    expose:
+      - 3306
+    networks:
+      secure_zone:
+        ipv4_address: 192.168.0.3
   mail:
     container_name: 'mail'
     build: ./mail
