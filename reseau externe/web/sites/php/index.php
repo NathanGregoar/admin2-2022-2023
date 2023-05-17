@@ -11,6 +11,12 @@
             <button type="submit"> Ajouter le nouveau jouet ! </button>
         </form>
 
+        <h2>Supprimer un jouet !</h2>
+        <form method="POST" action="?"> 
+            <input type="search" placeholder="nom du jouet à supprimer" name="nomDuProduitASupprimer">
+            <button type="submit"> Supprimer le jouet </button>
+        </form>
+
     <?php
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
@@ -32,18 +38,38 @@
             echo "</table>";
         }
 
-        // Handle form submission
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Handle form submission for adding a toy
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nomDuProduit']) && isset($_POST['prixDuProduit']) && isset($_POST['quantiteDuProduit'])) {
             $nomProduit = $_POST['nomDuProduit'];
             $prixDuProduit = $_POST['prixDuProduit'];
             $quantiteDuProduit = $_POST['quantiteDuProduit'];
 
-            // Insert new toy into the database
-            $insertSql = "INSERT INTO Products (Product, Quantity, Price) VALUES ('$nomProduit', $quantiteDuProduit, $prixDuProduit)";
-            if ($conn->query($insertSql) === TRUE) {
-                echo "<p>Jouet ajouté avec succès !</p>";
+            // Check if the toy already exists
+            $checkSql = "SELECT * FROM Products WHERE Product='$nomProduit'";
+            $checkResult = $conn->query($checkSql);
+            if ($checkResult->num_rows > 0) {
+                echo "<p>Ce jouet existe déjà !</p>";
             } else {
-                echo "Erreur lors de l'ajout du jouet : " . $conn->error;
+                // Insert new toy into the database
+                $insertSql = "INSERT INTO Products (Product, Quantity, Price) VALUES ('$nomProduit', $quantiteDuProduit, $prixDuProduit)";
+                if ($conn->query($insertSql) === TRUE) {
+                    echo "<p>Jouet ajouté avec succès !</p>";
+                } else {
+                    echo "Erreur lors de l'ajout du jouet : " . $conn->error;
+                }
+            }
+        }
+
+        // Handle form submission for deleting a toy
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nomDuProduitASupprimer'])) {
+            $nomProduitASupprimer = $_POST['nomDuProduitASupprimer'];
+
+            // Delete the toy from the database
+            $deleteSql = "DELETE FROM Products WHERE Product='$nomProduitASupprimer'";
+            if ($conn->query($deleteSql) === TRUE) {
+                echo "<p>Jouet supprimé avec succès !</p>";
+            } else {
+                echo "Erreur lors de la suppression du jouet : " . $conn->error;
             }
         }
     ?>
