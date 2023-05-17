@@ -54,6 +54,8 @@
                 $insertSql = "INSERT INTO Products (Product, Quantity, Price) VALUES ('$nomProduit', $quantiteDuProduit, $prixDuProduit)";
                 if ($conn->query($insertSql) === TRUE) {
                     echo "<p>Jouet ajouté avec succès !</p>";
+                    // Refresh the page to update the product list
+                    echo "<meta http-equiv='refresh' content='0'>";
                 } else {
                     echo "Erreur lors de l'ajout du jouet : " . $conn->error;
                 }
@@ -64,10 +66,12 @@
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nomDuProduitASupprimer'])) {
             $nomProduitASupprimer = $_POST['nomDuProduitASupprimer'];
 
-            // Delete the toy from the database
+            // Delete toy from the database
             $deleteSql = "DELETE FROM Products WHERE Product='$nomProduitASupprimer'";
             if ($conn->query($deleteSql) === TRUE) {
                 echo "<p>Jouet supprimé avec succès !</p>";
+                // Refresh the page to update the product list
+                echo "<meta http-equiv='refresh' content='0'>";
             } else {
                 echo "Erreur lors de la suppression du jouet : " . $conn->error;
             }
