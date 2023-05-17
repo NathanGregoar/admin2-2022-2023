@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title> Woodytoys b2b</title> 
+        <title>Woodytoys b2b</title> 
     </head>
     <body>
         <h2>Ajouter un jouet !</h2>
@@ -15,18 +15,18 @@
 
         // Connect to the database
         $conn = mysqli_connect('157.230.24.247', 'root', 'user123', 'woodytoys');
-        $sql = 'SELECT * FROM Produits';
+        $sql = 'SELECT * FROM Products';
 
         if ($result = $conn->query($sql)){
-            while ($data = $result->fetch()) {
+            while ($data = $result->fetch_assoc()) {
                 $produits[] = $data;
             }
             echo "<table><th>Nos Produits</th>";
             foreach ($produits as $prod) {
                 echo "<tr><td>";
-                echo $prod[1];
+                echo $prod['Product'];
                 echo "</td><td>";
-                echo $prod[2];
+                echo $prod['Quantity'];
                 echo "</td><tr>";
             }
             echo "</table>";
@@ -34,5 +34,4 @@
     ?>
 
     </body>
-
 </html>
