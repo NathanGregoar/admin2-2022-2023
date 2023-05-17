@@ -2,10 +2,12 @@ FROM ubuntu:20.04
 
 RUN apt-get update && apt-get install -y bind9 bind9utils bind9-doc dnsutils
 
-ADD named.conf.local /etc/bind/named.conf.local
-ADD m2-5.ephec-ti.be.zone /etc/bind/zones/m2-5.ephec-ti.be.zone
+WORKDIR /etc/bind
 
-RUN chown root:bind /etc/bind/named.conf.local /etc/bind/zones/m2-5.ephec-ti.be.zone
+ADD named.conf.local named.conf.local
+ADD zones/m2-5.ephec-ti.be.zone zones/m2-5.ephec-ti.be.zone
+
+RUN chown root:bind named.conf.local zones/m2-5.ephec-ti.be.zone
 
 EXPOSE 53/udp 53/tcp
 
