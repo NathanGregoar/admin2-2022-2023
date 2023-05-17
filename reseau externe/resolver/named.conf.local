@@ -11,8 +11,7 @@ options {
     recursion no;
 	# refuser tous transfert de zone
     allow-transfer { none; };
-    
-};
+}
 
 zone "m2-5.ephec-ti.be" {
     type master;
