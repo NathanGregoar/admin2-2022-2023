@@ -11,38 +11,26 @@
         </form>
 
     <?php
-    //These are the defined authentication environment in the db service
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-    // The MySQL service named in the docker-compose.yml.
-    $host = 'database';
+        // Connect to the database
+        $conn = mysqli_connect('192.168.0.3', 'root', 'user123', 'woodytoys');
+        $sql = 'SELECT * FROM Produits';
 
-    // Database use name
-    $user = 'root';
-
-    //database user password
-    $pass = 'user123';
-
-    // database name
-    $mydatabase = 'woodytoys';
-
-    // check the MySQL connection status
-    $conn = mysqli_connect('192.168.0.3', 'root', 'user123', 'woodytoys');
-    $sql = 'SELECT * FROM Produits';
-
-    if ($result = $conn->query($sql)){
-        while ($data = $result->fetch()) {
-            $produits[] = $data;
+        if ($result = $conn->query($sql)){
+            while ($data = $result->fetch()) {
+                $produits[] = $data;
+            }
+            echo "<table><th>Nos Produits</th>";
+            foreach ($produits as $prod) {
+                echo "<tr><td>";
+                echo $prod[1];
+                echo "</td><td>";
+                echo $prod[2];
+                echo "</td><tr>";
+            }
+            echo "</table>";
         }
-        echo "<table><th>Nos Produits</th>";
-        foreach ($produits as $prod) {
-            echo "<tr><td>";
-            echo $prod[1];
-            echo "</td><td>";
-            echo $prod[2];
-            echo "</td><tr>";
-        }
-        echo "</table>";
-    }
     ?>
 
     </body>
