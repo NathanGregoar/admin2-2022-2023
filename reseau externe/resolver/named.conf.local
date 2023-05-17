@@ -8,9 +8,9 @@ options {
 	listen-on-v6 { any; };
 
 	# refuser la recursion
-        recursion no;
+    recursion no;
 	# refuser tous transfert de zone
-        allow-transfer { none; };
+    allow-transfer { none; };
     
 };
 
