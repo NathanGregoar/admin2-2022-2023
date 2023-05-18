@@ -1,18 +1,45 @@
 version: "3.8"
 
 services:
-  resolver:
-    container_name: 'resolver'
-    build: ./resolver
+  public_resolver:
+    container_name: 'public_resolver'
+    build:
+      context: ./reseau_externe/resolver
+      dockerfile: Dockerfile
     expose:
       - 53/udp
       - 53/tcp
     networks:
       secure_zone:
         ipv4_address: 192.168.0.1
-  web:
-    container_name: 'web'
-    build: ./web
+  public_web:
+    container_name: 'public_web'
+    build:
+      context: ./reseau_externe/web
+      dockerfile: Dockerfile
+    expose:
+      - 80
+      - 443
+    networks:
+      secure_zone:
+        ipv4_address: 192.168.0.2
+
+  interne_resolver:
+    container_name: 'interne_resolver'
+    build:
+      context: ./reseau_interne/resolver
+      dockerfile: Dockerfile
+    expose:
+      - 53/udp
+      - 53/tcp
+    networks:
+      secure_zone:
+        ipv4_address: 192.168.0.10
+  interne_web:
+    container_name: 'interne_web'
+    build:
+      context: ./reseau_interne/web
+      dockerfile: Dockerfile
     links:
       - db:db
     expose:
@@ -20,10 +47,13 @@ services:
       - 443
     networks:
       secure_zone:
-        ipv4_address: 192.168.0.2
-  db:
-    container_name: 'db'
-    build: ./db
+        ipv4_address: 192.168.0.20
+
+  interne_db:
+    container_name: 'interne_db'
+    build:
+      context: ./reseau_interne/db
+      dockerfile: Dockerfile
     volumes:
       - db-data:/var/lib/mysql
     expose:
@@ -32,10 +62,13 @@ services:
       - 3306:3306
     networks:
       secure_zone:
-        ipv4_address: 192.168.0.3
-  mail:
-    container_name: 'mail'
-    build: ./mail
+        ipv4_address: 192.168.0.30
+
+  interne_mail:
+    container_name: 'interne_mail'
+    build:
+      context: ./reseau_interne/mail
+      dockerfile: Dockerfile
     expose:
       - 25
       - 143
@@ -43,27 +76,33 @@ services:
       - 993
     networks:
       secure_zone:
-        ipv4_address: 192.168.0.4
+        ipv4_address: 192.168.0.40
+
   client_1:
-    image: alpine
-    command: ash -c "apk update && apk upgrade && apk add links lynx bind-tools busybox-extras mysql && echo -e 'search ephec.be\nnameserver 192.168.0.1\noptions edns0 trust-ad ndots:0' > /etc/resolv.conf && tail -f /dev/null"
-    container_name: nathan
+    container_name: 'client_1'
+    build:
+      context: ./reseau_interne/client_1
+      dockerfile: Dockerfile
     networks:
       secure_zone:
         ipv4_address: 192.168.0.200
+
   client_2:
-    image: alpine
-    command: ash -c "apk update && apk upgrade && apk add links lynx bind-tools busybox-extras mysql && echo -e 'search ephec.be\nnameserver 192.168.0.1\noptions edns0 trust-ad ndots:0' > /etc/resolv.conf && tail -f /dev/null"
-    container_name: francois
+    container_name: 'client_2'
+    build:
+      context: ./reseau_interne/client_2
+      dockerfile: Dockerfile
     networks:
       secure_zone:
         ipv4_address: 192.168.0.201
+
 volumes:
   db-data:
+
 networks:
   secure_zone:
     ipam:
       driver: default
-      config: 
+      config:
         - subnet: 192.168.0.0/16
           gateway: 192.168.254.254
