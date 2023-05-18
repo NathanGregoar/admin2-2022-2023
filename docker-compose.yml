@@ -9,9 +9,6 @@ services:
     expose:
       - 53/udp
       - 53/tcp
-    networks:
-      secure_zone:
-        ipv4_address: 192.168.0.1
 
   public_web:
     container_name: 'public_web'
@@ -21,9 +18,6 @@ services:
     expose:
       - 80
       - 443
-    networks:
-      secure_zone:
-        ipv4_address: 192.168.0.2
 
   interne_resolver:
     container_name: 'interne_resolver'
@@ -35,7 +29,7 @@ services:
       - 53/tcp
     networks:
       secure_zone:
-        ipv4_address: 192.168.0.10
+        ipv4_address: 192.168.0.1
 
   interne_web:
     container_name: 'interne_web'
@@ -49,7 +43,7 @@ services:
       - 443
     networks:
       secure_zone:
-        ipv4_address: 192.168.0.20
+        ipv4_address: 192.168.0.2
 
   interne_db:
     container_name: 'interne_db'
@@ -64,7 +58,7 @@ services:
       - 3306:3306
     networks:
       secure_zone:
-        ipv4_address: 192.168.0.30
+        ipv4_address: 192.168.0.3
 
   interne_mail:
     container_name: 'interne_mail'
@@ -78,7 +72,7 @@ services:
       - 993
     networks:
       secure_zone:
-        ipv4_address: 192.168.0.40
+        ipv4_address: 192.168.0.4
 
   client_1:
     container_name: 'client_1'
