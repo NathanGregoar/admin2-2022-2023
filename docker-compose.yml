@@ -12,6 +12,7 @@ services:
     networks:
       secure_zone:
         ipv4_address: 192.168.0.1
+
   public_web:
     container_name: 'public_web'
     build:
@@ -35,13 +36,14 @@ services:
     networks:
       secure_zone:
         ipv4_address: 192.168.0.10
+
   interne_web:
     container_name: 'interne_web'
     build:
       context: ./reseau_interne/web
       dockerfile: Dockerfile
-    links:
-      - db:db
+    depends_on:
+      - interne_db
     expose:
       - 80
       - 443
