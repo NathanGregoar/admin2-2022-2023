@@ -4,7 +4,7 @@ services:
   public_resolver:
     container_name: 'public_resolver'
     build:
-      context: ../reseau\ externe/resolver
+      context: ../reseau_externe/resolver
       dockerfile: Dockerfile
     ports:
       - 53:53/udp
@@ -12,7 +12,7 @@ services:
   public_web:
     container_name: 'public_web'
     build:
-      context: ./reseau\ externe/web
+      context: ../reseau_externe/web
       dockerfile: Dockerfile
     ports:
       - 80:80
