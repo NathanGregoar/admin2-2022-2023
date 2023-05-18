@@ -75,7 +75,7 @@ services:
         ipv4_address: 192.168.0.4
 
   client_1:
-    container_name: 'client_1'
+    container_name: 'nathan'
     build:
       context: ./reseau_interne/client_1
       dockerfile: Dockerfile
@@ -84,7 +84,7 @@ services:
         ipv4_address: 192.168.0.200
 
   client_2:
-    container_name: 'client_2'
+    container_name: 'francois'
     build:
       context: ./reseau_interne/client_2
       dockerfile: Dockerfile
