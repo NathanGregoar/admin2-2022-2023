@@ -4,7 +4,7 @@ services:
   public_resolver:
     container_name: 'public_resolver'
     build:
-      context: ../reseau_externe/resolver
+      context: ./reseau_externe/resolver
       dockerfile: Dockerfile
     ports:
       - 53:53/udp
@@ -12,14 +12,14 @@ services:
   public_web:
     container_name: 'public_web'
     build:
-      context: ../reseau_externe/web
+      context: ./reseau_externe/web
       dockerfile: Dockerfile
     ports:
       - 80:80
       - 443:443
   resolver:
     container_name: 'resolver'
-    build: ./resolver
+    build: ./reseau_interne/resolver
     expose:
       - 53/udp
       - 53/tcp
@@ -28,7 +28,7 @@ services:
         ipv4_address: 192.168.0.1
   web:
     container_name: 'web'
-    build: ./web
+    build: ./reseau_interne/web
     links:
       - db:db
     expose:
@@ -39,7 +39,7 @@ services:
         ipv4_address: 192.168.0.2
   db:
     container_name: 'db'
-    build: ./db
+    build: ./reseau_interne/db
     volumes:
       - db-data:/var/lib/mysql
     expose:
@@ -51,7 +51,7 @@ services:
         ipv4_address: 192.168.0.3
   mail:
     container_name: 'mail'
-    build: ./mail
+    build: ./reseau_interne/mail
     expose:
       - 25
       - 143
