@@ -2,8 +2,8 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>WoodyToys site vitrine</title>
-    <link rel="icon" href="https://fraise-et-bois.fr/img/cms/jouets-en-bois.jpg" type="image/jpeg">
+    <title>WoodyToys - Site Vitrine</title>
+    <link rel="icon" href="https://cdn-s-www.estrepublicain.fr/images/D3C71F1B-A7D6-4386-8616-172A3E816E89/NW_raw/les-realisations-cigales-articulees-camions-de-pompiers-ou-encore-tracteurs-photo-er-bruno-grandjean-1640275635.jpg" type="image/jpeg">
     <style>
         * {
             box-sizing: border-box;
@@ -39,8 +39,16 @@
             line-height: 1.5;
         }
 
+        .product-images {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 960px;
+            margin: 20px auto;
+        }
+
         .product-image {
-            max-width: 400px;
+            width: 30%;
             height: auto;
             margin-bottom: 20px;
             border: 2px solid #333;
@@ -61,6 +69,17 @@
         .contact-info i {
             margin-right: 5px;
         }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
     </style>
 </head>
 <body>
@@ -73,15 +92,11 @@
         <p>Découvrez notre collection de jouets en bois faits à la main avec amour.</p>
 
         <h3>Nos produits :</h3>
-        <ul>
-            <li>Jouets éducatifs en bois</li>
-            <li>Puzzles en bois</li>
-            <li>Kits de construction en bois</li>
-        </ul>
-
-        <img src="https://cdn-s-www.estrepublicain.fr/images/D3C71F1B-A7D6-4386-8616-172A3E816E89/NW_raw/les-realisations-cigales-articulees-camions-de-pompiers-ou-encore-tracteurs-photo-er-bruno-grandjean-1640275635.jpg" alt="Jouets en bois" class="product-image">
-        <img src="https://media.cdnws.com/_i/29482/9922/1039/26/boite-a-forme-goky-nature-jouet-en-bois.jpeg" alt="Boîte à forme Goky" class="product-image">
-        <img src="https://fraise-et-bois.fr/img/cms/jouets-en-bois.jpg" alt="Jouets en bois" class="product-image">
+        <div class="product-images">
+            <img src="https://cdn-s-www.estrepublicain.fr/images/D3C71F1B-A7D6-4386-8616-172A3E816E89/NW_raw/les-realisations-cigales-articulees-camions-de-pompiers-ou-encore-tracteurs-photo-er-bruno-grandjean-1640275635.jpg" alt="Jouets en bois" class="product-image">
+            <img src="https://media.cdnws.com/_i/29482/9922/1039/26/boite-a-forme-goky-nature-jouet-en-bois.jpeg" alt="Boîte à forme Goky" class="product-image">
+            <img src="https://fraise-et-bois.fr/img/cms/jouets-en-bois.jpg" alt="Jouets en bois" class="product-image">
+        </div>
 
         <p>Visitez notre boutique en ligne pour commander dès maintenant !</p>
 
@@ -91,6 +106,10 @@
             <p><i class="fas fa-envelope"></i>Email : info@woodytoys.com</p>
         </div>
     </div>
+
+    <footer>
+        <p>Informations de contact : Téléphone : 0123456789 | Email : info@woodytoys.com</p>
+    </footer>
 
     <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
 </body>
