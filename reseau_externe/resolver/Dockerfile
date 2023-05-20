@@ -13,6 +13,4 @@ RUN dnssec-keygen -a RSASHA256 -b 1280 m2-5.ephec-ti.be
 RUN find /etc/bind/ -name 'Km2-5*.key' -exec mv {} /etc/bind/Km2-5.key \;
 RUN find /etc/bind/ -name 'Km2-5*.private' -exec mv {} /etc/bind/Km2-5.private \;
 
-RUN dnssec-signzone -A -3 $(head -c 1000 /dev/random | sha1sum | cut -b 1-16) -N INCREMENT -o m2-5.ephec-ti.be -t /etc/bind/m2-5.ephec-ti.be.zone
-
 CMD ["named", "-g"]
