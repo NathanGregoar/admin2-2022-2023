@@ -4,6 +4,7 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable mysqli
 
 RUN mkdir /var/log/apache2/html
 RUN mkdir /var/log/apache2/php
+RUN mkdir -p /www/home/logs/
 
 COPY ./sites/ /var/www/
 
