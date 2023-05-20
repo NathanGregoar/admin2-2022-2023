@@ -14,6 +14,4 @@ RUN for key in `ls K*.key`; do echo "\$INCLUDE /etc/bind/$key">> m2-5.ephec-ti.b
 
 RUN dnssec-signzone -A -3 $(head -c 1000 /dev/random | sha1sum | cut -b 1-16) -N INCREMENT -o m2-5.ephec-ti.be -t m2-5.ephec-ti.be.zone
 
-RUN mv m2-5.ephec-ti.be.signed m2-5.ephec-ti.be.zone.signed
-
 CMD ["named", "-g"]
