@@ -10,8 +10,8 @@ RUN apt-get update && apt-get install -y bind9utils
 RUN dnssec-keygen -a RSASHA256 -b 2048 -f KSK m2-5.ephec-ti.be
 RUN dnssec-keygen -a RSASHA256 -b 1280 m2-5.ephec-ti.be
 
-RUN cp /etc/bind/Km2-5*.key /etc/bind/Km2-5.key
-RUN cp /etc/bind/Km2-5*.private /etc/bind/Km2-5.private
+RUN cp /etc/bind/Km2-5.*.key /etc/bind/Km2-5.key
+RUN cp /etc/bind/Km2-5.*.private /etc/bind/Km2-5.private
 
 RUN echo '$INCLUDE "/etc/bind/Km2-5.key";' >> /etc/bind/m2-5.ephec-ti.be.zone
 
