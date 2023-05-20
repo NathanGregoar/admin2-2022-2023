@@ -1,59 +1,97 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>WoodyToys site vitrine</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f9f9f9;
-                margin: 0;
-                padding: 0;
-            }
-            
-            header {
-                background-color: #333;
-                color: #fff;
-                padding: 20px;
-                text-align: center;
-            }
-            
-            h1 {
-                margin-top: 0;
-            }
-            
-            .container {
-                max-width: 960px;
-                margin: 0 auto;
-                padding: 20px;
-            }
-            
-            p {
-                line-height: 1.5;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <h1>WoodyToys</h1>
-        </header>
-        
-        <div class="container">
-            <h2>Bienvenue chez WoodyToys !</h2>
-            <p>Découvrez notre collection de jouets en bois faits à la main avec amour.</p>
-            
-            <h3>Nos produits :</h3>
-            <ul>
-                <li>Jouets éducatifs en bois</li>
-                <li>Puzzles en bois</li>
-                <li>Kits de construction en bois</li>
-            </ul>
-            
-            <p>Visitez notre boutique en ligne pour commander dès maintenant !</p>
-            
-            <h3>Contactez-nous :</h3>
-            <p>Téléphone : 0123456789</p>
-            <p>Email : info@woodytoys.com</p>
+<head>
+    <meta charset="UTF-8">
+    <title>WoodyToys site vitrine</title>
+    <link rel="icon" href="https://fraise-et-bois.fr/img/cms/jouets-en-bois.jpg" type="image/jpeg">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 36px;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        p {
+            line-height: 1.5;
+        }
+
+        .product-image {
+            max-width: 400px;
+            height: auto;
+            margin-bottom: 20px;
+            border: 2px solid #333;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .contact-info p {
+            margin: 0;
+        }
+
+        .contact-info i {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>WoodyToys</h1>
+    </header>
+
+    <div class="container">
+        <h2>Bienvenue chez WoodyToys !</h2>
+        <p>Découvrez notre collection de jouets en bois faits à la main avec amour.</p>
+
+        <h3>Nos produits :</h3>
+        <ul>
+            <li>Jouets éducatifs en bois</li>
+            <li>Puzzles en bois</li>
+            <li>Kits de construction en bois</li>
+        </ul>
+
+        <img src="https://cdn-s-www.estrepublicain.fr/images/D3C71F1B-A7D6-4386-8616-172A3E816E89/NW_raw/les-realisations-cigales-articulees-camions-de-pompiers-ou-encore-tracteurs-photo-er-bruno-grandjean-1640275635.jpg" alt="Jouets en bois" class="product-image">
+        <img src="https://media.cdnws.com/_i/29482/9922/1039/26/boite-a-forme-goky-nature-jouet-en-bois.jpeg" alt="Boîte à forme Goky" class="product-image">
+        <img src="https://fraise-et-bois.fr/img/cms/jouets-en-bois.jpg" alt="Jouets en bois" class="product-image">
+
+        <p>Visitez notre boutique en ligne pour commander dès maintenant !</p>
+
+        <h3>Contactez-nous :</h3>
+        <div class="contact-info">
+            <p><i class="fas fa-phone"></i>Téléphone : 0123456789</p>
+            <p><i class="fas fa-envelope"></i>Email : info@woodytoys.com</p>
         </div>
-    </body>
+    </div>
+
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
 </html>
