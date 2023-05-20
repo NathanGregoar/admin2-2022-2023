@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Woodytoys B2B</title>
+    <link rel="icon" href="https://cdn-s-www.estrepublicain.fr/images/D3C71F1B-A7D6-4386-8616-172A3E816E89/NW_raw/les-realisations-cigales-articulees-camions-de-pompiers-ou-encore-tracteurs-photo-er-bruno-grandjean-1640275635.jpg" type="image/jpeg">
     <style>
         body {
             font-family: Arial, sans-serif;
