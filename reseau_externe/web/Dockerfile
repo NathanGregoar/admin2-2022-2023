@@ -18,14 +18,15 @@ COPY ./conf/secu/private/private.key /etc/ssl/private/
 COPY ./conf/secu/ssl/ca_bundle.crt /etc/ssl/
 COPY ./conf/secu/ssl/certificate.crt /etc/ssl/
 
+# Désactiver le site par défaut
 RUN a2dissite 000-default.conf
+
+# Activer le module SSL
+RUN a2enmod ssl
 
 # Activer les sites virtuels
 RUN a2ensite vitrine.conf
 RUN a2ensite b2b.conf
-
-# Activer le module SSL
-RUN a2enmod ssl
 
 # Redémarrer le serveur Apache
 RUN service apache2 restart
