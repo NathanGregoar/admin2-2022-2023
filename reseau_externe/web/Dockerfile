@@ -14,6 +14,11 @@ COPY ./conf/virtualhosting/vitrine.conf /etc/apache2/sites-available/
 
 COPY ./resolv.conf /etc/
 
+# Copier les fichiers de certificat SSL
+COPY ./conf/secu/private/private.key /etc/ssl/private/
+COPY ./conf/secu/ssl/ca_bundle.crt /etc/ssl/
+COPY ./conf/secu/ssl/certificate.crt /etc/ssl/
+
 RUN a2dissite 000-default.conf
 
 RUN a2ensite vitrine.conf   
