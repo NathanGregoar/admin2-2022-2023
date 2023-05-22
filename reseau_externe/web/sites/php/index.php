@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Woodytoys B2B</title>
+    <link rel="icon" href="https://static.vecteezy.com/ti/photos-gratuite/p2/963590-gros-plan-d-un-jouet-en-bois-avion-modele-sculpte-a-la-main-photo.jpg" type="image/jpeg">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -43,6 +44,64 @@
         
         th, td {
             padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+        
+        p.success {
+            color: green;
+        }
+        
+        p.error {
+            color: red;
+        }
+        
+        /* Styles specific to match the WoodyToys branding */
+        body {
+            background-color: #fff;
+            color: #333;
+        }
+        
+        h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        form {
+            margin-bottom: 30px;
+        }
+        
+        input[type="search"] {
+            width: 200px;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #333;
+            border-radius: 4px;
+        }
+        
+        button[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 10px;
             text-align: left;
             border-bottom: 1px solid #ccc;
         }
