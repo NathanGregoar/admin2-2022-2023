@@ -21,8 +21,8 @@ RUN a2dissite 000-default.conf
 
 RUN a2enmod ssl
 
-RUN a2ensite ./conf/virtualhosting/vitrine.conf
-RUN a2ensite ./conf/virtualhosting/b2b.conf
+RUN a2ensite vitrine.conf
+RUN a2ensite b2b.conf
 
 RUN service apache2 restart
 
